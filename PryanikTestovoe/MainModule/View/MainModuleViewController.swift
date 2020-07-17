@@ -11,7 +11,7 @@ import UIKit
 
 protocol MainTableViewCellProtocol: UITableViewCell {
     var item: Elements? { get set }
-    func showAlert()
+    func showAlert() -> UIAlertController
 }
 
 class MainModuleViewController: UIViewController {
@@ -41,7 +41,7 @@ extension MainModuleViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCellProtocol
-        cell?.showAlert()
+        self.present((cell?.showAlert())!, animated: true, completion: nil)
     }
 }
 

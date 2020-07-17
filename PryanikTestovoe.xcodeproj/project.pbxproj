@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5E7FE7A324BF62E00059BB9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7FE7A224BF62E00059BB9E /* AppDelegate.swift */; };
 		5E7FE7A524BF62E00059BB9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7FE7A424BF62E00059BB9E /* SceneDelegate.swift */; };
-		5E7FE7A724BF62E00059BB9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7FE7A624BF62E00059BB9E /* ViewController.swift */; };
 		5E7FE7AC24BF62ED0059BB9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E7FE7AB24BF62ED0059BB9E /* Assets.xcassets */; };
 		5E7FE7AF24BF62ED0059BB9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E7FE7AD24BF62ED0059BB9E /* LaunchScreen.storyboard */; };
 		5E7FE7B824BF63500059BB9E /* MainModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7FE7B724BF63500059BB9E /* MainModulePresenter.swift */; };
@@ -31,7 +30,6 @@
 		5E7FE79F24BF62E00059BB9E /* PryanikTestovoe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PryanikTestovoe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E7FE7A224BF62E00059BB9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5E7FE7A424BF62E00059BB9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5E7FE7A624BF62E00059BB9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5E7FE7AB24BF62ED0059BB9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E7FE7AE24BF62ED0059BB9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E7FE7B024BF62ED0059BB9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,7 +111,6 @@
 				5E7FE7D924C0928E0059BB9E /* Extension.swift */,
 				5E7FE7C224BF64910059BB9E /* Service */,
 				5E7FE7B624BF63080059BB9E /* MainModule */,
-				5E7FE7A624BF62E00059BB9E /* ViewController.swift */,
 				5E7FE7AB24BF62ED0059BB9E /* Assets.xcassets */,
 				5E7FE7AD24BF62ED0059BB9E /* LaunchScreen.storyboard */,
 				5E7FE7B024BF62ED0059BB9E /* Info.plist */,
@@ -249,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E7FE7A724BF62E00059BB9E /* ViewController.swift in Sources */,
 				5E7FE7A324BF62E00059BB9E /* AppDelegate.swift in Sources */,
 				5E7FE7D024C040BF0059BB9E /* SelectorTableViewCell.swift in Sources */,
 				5E7FE7DA24C0928E0059BB9E /* Extension.swift in Sources */,

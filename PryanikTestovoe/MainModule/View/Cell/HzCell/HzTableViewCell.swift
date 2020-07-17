@@ -9,8 +9,11 @@
 import UIKit
 
 class HzTableViewCell: UITableViewCell, MainTableViewCellProtocol {
-    func showAlert() {
-        print("Text Hz: ", self.hzTextLabel.text ?? "")
+    func showAlert() -> UIAlertController {
+        let message = "Text: " + (self.hzTextLabel.text ?? "No text")
+        let alert = UIAlertController(title: "Hz cell", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return alert
     }
     
 

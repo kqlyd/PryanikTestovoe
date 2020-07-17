@@ -9,8 +9,11 @@
 import UIKit
 
 class PictureTableViewCell: UITableViewCell, MainTableViewCellProtocol {
-    func showAlert() {
-        print("Picture text: ", self.labelPicture.text ?? "")
+    func showAlert() -> UIAlertController {
+        let message = "Picture message: " + (self.labelPicture.text ?? "No text picture")
+        let alert = UIAlertController(title: "Picture cell", message: self.labelPicture.text, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return alert
     }
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!

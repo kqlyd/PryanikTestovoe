@@ -9,8 +9,11 @@
 import UIKit
 
 class SelectorTableViewCell: UITableViewCell, MainTableViewCellProtocol {
-    func showAlert() {
-        print("Id selector = ", id ?? "Id not select")
+    func showAlert() -> UIAlertController {
+        let message = "Id selector: " + (id?.description ?? "Selector not choose")
+        let alert = UIAlertController(title: "Selector cell", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        return alert
     }
     
 
@@ -57,7 +60,6 @@ extension SelectorTableViewCell: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         id = variantsSelector?[row].id
         textFieldSelector.text = variantsSelector?[row].text
-        print("Id selector: ", id!)
     }
 }
 
@@ -102,7 +104,6 @@ extension SelectorTableViewCell{
     @objc func donePressed(sender: UIBarButtonItem) {
         let row = self.pickerViewSelector.selectedRow(inComponent: 0)
         id = variantsSelector?[row].id
-        print("Id selector: ", id!)
         textFieldSelector.text = variantsSelector?[row].text
         textFieldSelector.resignFirstResponder()
     }
