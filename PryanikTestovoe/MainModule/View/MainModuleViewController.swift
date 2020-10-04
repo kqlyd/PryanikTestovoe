@@ -43,6 +43,22 @@ extension MainModuleViewController: UITableViewDelegate{
         let cell = tableView.cellForRow(at: indexPath) as? MainTableViewCellProtocol
         self.present((cell?.showAlert())!, animated: true, completion: nil)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let typeElement = ElementType(rawValue: self.presenter.elementsView?.view?[indexPath.row] ?? "unknown")
+        switch typeElement {
+        case .hz:
+            return 44
+        case .picture:
+            return 60
+        case .selector:
+            return 121
+        case .none:
+            return 44
+        case .some(.unknown):
+            return 44
+        }
+    }
 }
 
 extension MainModuleViewController: UITableViewDataSource{
@@ -53,7 +69,6 @@ extension MainModuleViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let typeElement = ElementType(rawValue: self.presenter.elementsView?.view?[indexPath.row] ?? "unknown")
-        
         
         switch typeElement {
         case .hz:
@@ -81,8 +96,6 @@ extension MainModuleViewController: UITableViewDataSource{
         }
         return cell
     }
-    
-    
 }
 
 extension MainModuleViewController: MainModuleViewProtocol{

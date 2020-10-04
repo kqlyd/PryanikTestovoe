@@ -17,34 +17,40 @@ class SelectorTableViewCell: UITableViewCell, MainTableViewCellProtocol {
     }
     
 
-    @IBOutlet weak var textFieldSelector: UITextField!
-
-    var pickerViewSelector  = UIPickerView()
-    
-    
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var chooseLabel: UILabel!
     
     var id: Int?
+    var selectedId: Int?
     var variantsSelector: [SelectorVariant]?
     var item: Elements?{
         didSet{
             switch item{
             case .selector(let selector):
+                selectedId = selector.selectedId
                 variantsSelector = selector.variants
+                chooseLabel.text = variantsSelector?[selectedId ?? 0].text
+                pickerView.selectRow(self.selectedId ?? 0, inComponent: 0, animated: true)
             default:
                 break
             }
         }
     }
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        //self.backgroundColor = UIColor.red
+        self.layer.cornerRadius = 8
+        self.clipsToBounds = true
+        //self.layer.borderWidth = 1
         configureSelector()
-        addButtonPickerView()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
     static var nib:UINib {
         return UINib(nibName: "SelectorTableViewCell", bundle: nil)
     }
@@ -57,9 +63,10 @@ extension SelectorTableViewCell: UIPickerViewDelegate{
         let row = variantsSelector?[row].text
            return row
        }
+
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         id = variantsSelector?[row].id
-        textFieldSelector.text = variantsSelector?[row].text
+        chooseLabel.text = variantsSelector?[row].text
     }
 }
 
@@ -76,35 +83,7 @@ extension SelectorTableViewCell: UIPickerViewDataSource{
 extension SelectorTableViewCell{
     
     func configureSelector(){
-        pickerViewSelector.dataSource = self
-        pickerViewSelector.delegate = self
-        textFieldSelector.inputView = pickerViewSelector
-    }
-    
-    func addButtonPickerView() {
-        let toolBar = UIToolbar(frame: CGRect(x: 0, y: super.contentView.frame.size.height/6, width: super.contentView.frame.size.width, height: 40.0))
-        toolBar.layer.position = CGPoint(x: super.contentView.frame.size.width/2, y: super.contentView.frame.size.height-20.0)
-        toolBar.barStyle = UIBarStyle.black
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor.white
-        toolBar.backgroundColor = UIColor.black
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(self.donePressed))
-        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: super.contentView.frame.size.width / 3, height: super.contentView.frame.size.height))
-        label.font = UIFont(name: "Helvetica", size: 12)
-        label.backgroundColor = UIColor.clear
-        label.textColor = UIColor.white
-        label.text = ""
-        label.textAlignment = .center
-        let textBtn = UIBarButtonItem(customView: label)
-        toolBar.setItems([flexSpace,textBtn,flexSpace,doneButton], animated: true)
-        textFieldSelector.inputAccessoryView = toolBar
-    }
-
-    @objc func donePressed(sender: UIBarButtonItem) {
-        let row = self.pickerViewSelector.selectedRow(inComponent: 0)
-        id = variantsSelector?[row].id
-        textFieldSelector.text = variantsSelector?[row].text
-        textFieldSelector.resignFirstResponder()
+        pickerView.dataSource = self
+        pickerView.delegate = self
     }
 }

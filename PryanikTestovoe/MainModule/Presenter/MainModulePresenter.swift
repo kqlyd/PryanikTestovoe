@@ -34,6 +34,7 @@ class MainModulePresenter: MainModulePresenterProtocol {
     }
     
     func getElements() {
+        
         network.getElements { [weak self] (result) in
             switch result{
             case .success(let data):
