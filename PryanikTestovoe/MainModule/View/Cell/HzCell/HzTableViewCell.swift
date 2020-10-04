@@ -32,11 +32,6 @@ class HzTableViewCell: UITableViewCell, MainTableViewCellProtocol {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //self.backgroundColor = UIColor.p
-        self.layer.cornerRadius = 8
-        self.clipsToBounds = true
-        //self.layer.borderWidth = 1
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

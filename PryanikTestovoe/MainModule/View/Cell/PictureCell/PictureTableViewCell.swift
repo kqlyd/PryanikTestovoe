@@ -51,10 +51,6 @@ class PictureTableViewCell: UITableViewCell, MainTableViewCellProtocol {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //self.backgroundColor = UIColor.red
-        self.layer.cornerRadius = 8
-        self.clipsToBounds = true
-        //self.layer.borderWidth = 1
         if imageViewPicture.image == nil{
             activityIndicator.isHidden = false
             activityIndicator.startAnimating()
